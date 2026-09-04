@@ -1,3 +1,3 @@
-# myFirstProjrct
+# myFirstProjret
 
 input text here
