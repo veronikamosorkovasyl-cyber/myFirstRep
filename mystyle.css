@@ -8,6 +8,12 @@
   --highlight-color: #F2BDC1;
   --text-color: #CEF2E8;
 }
+grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
 
 body {
   width: 100%;
@@ -36,8 +42,10 @@ img {
   max-width: 100%;
   height: auto;
   color: #F2D7D0;
+  align-items: left;
 }
 ul {
+  display: flex;
   color: #F29199;
   font-family: 'Lora', serif;
   list-style-type: none;
