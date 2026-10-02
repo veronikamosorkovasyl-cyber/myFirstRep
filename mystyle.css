@@ -1,3 +1,4 @@
+/*base*/
 * {
   box-sizing: border-box;
 }
@@ -5,51 +6,191 @@
   --primary-color: #0D0000;
   --secondary-color: #F29199;
   --accent-color: #F2D7D0;
-  --highlight-color: #F2BDC1;
+  --highlight-color: #f2bdc1;
   --text-color: #CEF2E8;
 }
-grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
 body {
   width: 100%;
-  height: 100%;
+  height: 3000px;
   margin: 0;
-  overflow: hidden;
   background-color: #0D0000;
+  padding-bottom: 200px;
+}
 
+#grad {
+  background-image: linear-gradient(to top, #F29199 20%, #0D0000);
 }
-p {
-  color: #CEF2E8;
-  font-family: 'Lora', serif;
-  text-align: right;
-  font-size: 20px;
+#grad2 {
+  background-image: linear-gradient(to bottom, #F29199, #0D0000);
 }
-h1 {
+#grad3 {
+  height: 150px;
+  width: 200px;
+  background-color: #F29199;
+  background-image: radial-gradient(circle, #0D0000);
+}
+#box1 {
+  border-radius: 15px 50px;
+  background-color: #0D0000;
+  padding: 20px; 
+  width: 200px;
+  height: 150px;
+  opacity: 0.5;
+}
+/*cointerner*/
+.container {
+  display: grid;
+  grid-template-areas:
+    "header  header"
+    "posters header2"
+    "posters content"
+    "header3 header3"
+    "poster2  poster2"
+    "footer  footer";
+  grid-template-columns: 700px minmax(0, 1fr);
+}
+/*main title*/
+.container div.header {
+  grid-area: header;
+  font-size: 30px;
+  text-align: center;
   color: #CEF2E8;
   text-align: center;
   font-family: 'Lora', serif;
+  gap: 5px;
+  padding: 5px;
 }
-img {
-  width:500px;
-  height:700px;
-  float: left;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
+marquee {
   color: #F2D7D0;
-  align-items: left;
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  gap: 5px;
+  padding: 5px;
 }
+/*pics and info 1*/
+.posters {
+  grid-area: posters;
+  min-width: 0;
+  margin: 0;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: 1rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0;
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 800px;
+  aspect-ratio: 2 / 5;
+  object-fit: fill;
+  scroll-snap-align: center;
+}
+
+img {
+  border-radius: 8px;
+}
+
+.container div.header2 {
+  min-width: 0;
+  grid-area: header2;
+  text-align: center;
+  color: #CEF2E8;
+  font-family: 'Lora', serif;
+  font-size: 35px;
+  gap: 5px;
+  padding: 5px;
+}
+.container div.content {
+  min-width: 0;
+  grid-area: content;
+  text-align: Center;
+  color: #CEF2E8;
+  font-family: 'Lora', serif;
+  font-size: 30px;
+  padding: 5px;
+}
+/*pics and info 2*/
+.container div.header3 {
+  min-width: 0;
+  grid-area: header3;
+  text-align: center;
+  color: #CEF2E8;
+  font-family: 'Lora', serif;
+  font-size: 40px;
+  padding: 2px;
+}
+.poster2 {
+  grid-area: poster2;
+  min-width: 0;
+  width: 100%;
+}
+.carousel2 {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1500px;     
+}
+.slide2 {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20rem;
+  align-items: center;
+  height: auto;          
+  width: auto;
+}
+.slide2 img {
+  object-fit: contain;
+  width: 275px;
+  height: 800px;
+  aspect-ratio: 3 / 4;
+  float: none;
+  margin: 0;
+  order: 2;
+}
+.slide2 .info {
+  min-width: 0;
+  width: 700px;
+  padding: 5px;
+  color: #CEF2E8;
+  font-family: 'Lora', serif;
+  text-align: center;
+  font-size: 40px;
+  padding: 50px;
+}
+/*footer*/
+.container div.footer {
+  min-width: 0;
+  grid-area: footer;
+  text-align: bottom;
+  color: #CEF2E8;
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  gap: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+/*info bar*/
 ul {
   display: flex;
   color: #F29199;
   font-family: 'Lora', serif;
   list-style-type: none;
-  margin: 10px;
+  margin: 0px;
   padding: 10px;
   overflow: hidden;
   background-color: #F2BDC1;
@@ -68,19 +209,10 @@ li a {
 li a:hover {
   background-color: #F29199;
 }
-marquee {
-  color: #F29199;
-  font-family: 'Lora', serif;
-}
-.header {
-  border-bottom: 1px solid #F2D7D0;
-  padding: 20px;
-  text-align: center;
-}
-
 /* 
 #0D0D0D
 #CEF2E8
 #F2D7D0
 #F2BDC1
 #F29199
+
