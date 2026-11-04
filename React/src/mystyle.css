@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+
+/*base*/
+* {
+  box-sizing: border-box;
+}
+:root {
+  --font-heading: 'Oswald', 'Noto Sans JP', sans-serif;
+  --font-main: 'Kadwa', 'Noto Sans JP', Georgia, 'Times New Roman', serif;
+  --primary-color: #0D0000;
+  --secondary-color: #F29199;
+  --accent-color: #F2D7D0;
+  --highlight-color: #f2bdc1;
+  --text-color: #CEF2E8;
+}
+:root[data-theme="dark"] {
+  --primary-color: #0D0000;
+  --secondary-color: #F29199;
+  --accent-color: #F2D7D0;
+  --highlight-color: #f2bdc1;
+  --text-color: #CEF2E8;
+}
+:root[data-theme="light"] {
+  --primary-color: #efcef2;
+  --secondary-color: #bb90d8;
+  --accent-color: #cb91f2;
+  --highlight-color: #ad71d4;
+  --text-color: #0D0000;
+}
+body {
+  font-family: var(--font-main);
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--primary-color);
+  padding-bottom: 200px;
+}
+
+#grad {
+  background-image: linear-gradient(to top, var(--secondary-color), var(--primary-color));
+}
+#grad2 {
+  background-image: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+}
+#grad3 {
+  background-image: radial-gradient(var(--secondary-color), var(--primary-color));
+}
+#box1 {
+  border-radius: 15px 50px;
+  background-color: var(--primary-color);
+  padding: 20px; 
+  width: 200px;
+  height: 150px;
+  opacity: 0.5;
+}
+/*cointerner*/
+.container {
+  display: flex;
+  flex-wrap: wrap; 
+  display: grid;
+  grid-template-areas:
+    "nav nav"
+    "header  header"
+    "posters header2"
+    "posters content"
+    "header3 header3"
+    "poster2  poster2"
+    "trailer trailer"
+    "header4 header4"
+    "reasons reasons"
+    "footer  footer";
+  grid-template-columns: 700px minmax(0, 1fr);
+}
+@media (min-width: 768px) {
+  .container {
+  display: flex;
+  flex-wrap: wrap; 
+  display: grid;
+  grid-template-areas:
+    "nav nav"
+    "header  header"
+    "posters header2"
+    "posters content"
+    "header3 header3"
+    "poster2  poster2"
+    "trailer trailer"
+    "header4 header4"
+    "reasons reasons"
+    "footer  footer";
+  grid-template-columns: 700px minmax(0, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap; 
+
+    display: grid;
+    grid-template-areas:
+      "nav"
+      "header"
+      "posters"
+      "header2"
+      "content"
+      "header3"
+      "poster2"
+      "trailer"
+      "header4"
+      "reasons"
+      "footer";
+    grid-template-columns: 1fr;
+    }
+    .posters {
+    grid-area: posters;
+    min-width: 0;
+    margin: 0;
+    }
+    .content {
+    grid-area: content;
+    min-width: 0;
+    margin: 0;
+    }
+    .content h4 { font-size: 1.5rem;
+     }
+    .header2 h2 { font-size: 2rem;
+     }
+
+    .carousel {
+    overscroll-behavior-x: contain; 
+    }
+
+    .slide {
+    flex: 0 0 100%;
+    height: 800px;
+    aspect-ratio: 2 / 5;
+    object-fit: fill;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;        
+    }
+
+  .carousel2 {
+    max-width: 100%;
+    overscroll-behavior-x: contain; 
+    max-width: 767px;
+  }
+
+  .slide2 {
+    gap: 20px;
+    grid-template-columns: auto minmax(0, 10px);
+    scroll-snap-stop: always;         
+    grid-template-columns: 1fr;   
+    align-content: start;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    position: relative;
+    display: block;               
+    min-height: 450px;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .slide2 img {
+    position: absolute;
+    inset: 0;                     
+    height: 100%;
+    max-width: none;
+    aspect-ratio: auto;
+    object-fit: cover;
+    opacity: 0.35;                
+    z-index: 0;            
+    margin: 0 auto;
+  }
+  .slide2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, var(--primary-color));
+  z-index: 0;
+  }
+    .slide2 .info {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--text-color);
+    padding: 0 .5rem;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+  }
+  .slide2 .info h4 { font-size: 1.5rem; }
+  .slide2 .info h6  { font-size: 1rem; line-height: 1.4; }
+}
+
+/*main title*/
+.container div.header {
+  grid-area: header;
+  font-size: 30px;
+  text-align: center;
+  color: var(--text-color);
+  text-align: center;
+  font-family: var(--font-main);
+  gap: 5px;
+  padding: 5px;
+}
+.marquee {
+  overflow: hidden;          /* ховає текст, що виїхав за межі */
+  white-space: nowrap;       /* текст в один рядок */
+  color: var(--highlight-color);
+  font-family: var(--font-main);
+  font-size: 20px;
+  padding: 5px;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;        /* стартує за правим краєм */
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }  /* їде повністю вліво */
+}
+
+/* пауза при наведенні */
+.marquee:hover span { animation-play-state: paused; }
+
+/* поважаємо налаштування «зменшити рух» */
+@media (prefers-reduced-motion: reduce) {
+  .marquee span { animation: none; padding-left: 0; }
+}
+/*pics and info 1*/
+.posters {
+  grid-area: posters;
+  min-width: 0;
+  margin: 0;
+}
+
+.carousel {
+  overscroll-behavior-x: contain;
+  max-width: min(700px, 100%);
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: 1rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0;
+}
+
+
+.slide {
+  flex: 0 0 100%;
+  height: 800px;
+  aspect-ratio: 2 / 5;
+  object-fit: fill;
+  scroll-snap-align: center;
+}
+
+img {
+  border-radius: 8px;
+}
+
+.container div.header2 {
+  min-width: 0;
+  grid-area: header2;
+  text-align: center;
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 25px;
+  gap: 5px;
+  padding: 5px;
+}
+.container div.content {
+  min-width: 0;
+  grid-area: content;
+  text-align: Center;
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 25px;
+  padding: 5px;
+}
+/*pics and info 2*/
+.container div.header3 {
+  min-width: 0;
+  grid-area: header3;
+  text-align: center;
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 35px;
+  padding: 2px;
+}
+.poster2 {
+  grid-area: poster2;
+  min-width: 0;
+  width: 100%;
+}
+.carousel2 {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: 1rem;
+  width: 100%;
+  max-width: none;
+  background: linear-gradient(transparent, var(--primary-color));
+}
+.slide2 {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20rem;
+  align-items: center;
+  height: auto;          
+  width: auto;
+  margin: 0 auto;
+
+}
+.slide2 img {
+  object-fit: contain;
+  width: 275px;
+  height: 800px;
+  aspect-ratio: 3 / 4;
+  float: none;
+  margin: 0;
+  order: 2;
+}
+.slide2 .info {
+  min-width: 0;
+  width: 700px;
+  padding: 5px;
+  color: var(--text-color);
+  font-family: var(--font-main);
+  text-align: center;
+  font-size: 30px;
+  padding: 50px;
+}
+
+/* trailer */
+.container div.trailer {
+  min-width: 0;
+  width: 100%;
+  grid-area: trailer;
+  text-align: center;
+}
+.container div.trailer iframe {
+  width: 100%;
+  height: 500px;
+  max-width: 700px;
+  margin: 0 auto;
+  display: block;
+}
+.container div.trailer h1 {
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 40px;
+  gap: 5px;
+  padding: 5px;
+  text-align: center;
+}
+.container div.trailer h3 {
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 30px;
+  gap: 5px;
+  padding: 5px;
+  text-align: center;
+}
+.container div.trailer p {
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 25px;
+  gap: 5px;
+  text-align: center;
+}
+/*reasons*/
+.container div.header4 {
+  min-width: 0;
+  grid-area: header4;
+  text-align: center;
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 40px;
+}
+.container div.reasons {
+  min-width: 0;
+  grid-area: reasons;
+  text-align: center;
+  margin: 0px;
+}
+.container div.reasons p {
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-size: 25px;
+  gap: 10px;
+}
+
+/*footer*/
+.container div.footer {
+  min-width: 0;
+  grid-area: footer;
+  text-align: bottom;
+  color: var(--primary-color);
+  background-color: var(--highlight-color);
+  font-family: var(--font-main);
+  font-size: 20px;
+  gap: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+/*info bar*/
+ul {
+  display: flex;
+  color: var(--primary-color);
+  font-family: var(--font-main);
+  list-style-type: none;
+  margin: 0px;
+  padding: 10px;
+  overflow: hidden;
+  background-color: var(--highlight-color);
+}
+li {
+  float: left;
+}
+label {
+  color: var(--primary-color);
+  float: right;
+}
+ 
+/* 
+#0D0D0D
+#CEF2E8
+#F2D7D0
+#F2BDC1
+#F29199
+
+
+
+/* ===== додано для script.js ===== */
+.posters, .poster2 { position: relative; }
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+  background: rgba(0, 0, 0, .5);
+  color: #fff;
+  transition: background .3s, transform .3s;
+}
+.carousel-btn:hover { background: var(--highlight-color); color: var(--primary-color); transform: translateY(-50%) scale(1.1); }
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .5);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+}
+.dot.active { background: var(--secondary-color); transform: scale(1.4); }
+
+/* плавна зміна теми */
+body, .container div, ul, li a { transition: background-color .4s, color .4s; }
+
+/* ===== кнопки в nav (посилання + кнопка теми однакові) ===== */
+ul {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+li a,
+#theme-toggle {
+  display: inline-block;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  background: var(--primary-color);
+  color: var(--text-color);
+  transition: background-color .3s, color .3s, transform .2s;
+}
+li a:hover,
+#theme-toggle:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+li a:active,
+#theme-toggle:active { transform: translateY(0); }
+
+li a:focus-visible,
+#theme-toggle:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+/* кнопка теми — праворуч (і коли вона в <li>, і коли просто в <ul>) */
+#theme-toggle,
+li:has(> #theme-toggle) { margin-left: auto; }
+li:has(> #theme-toggle) #theme-toggle { margin-left: 0; }
+
+/* ===== reasons: вужчий текст і відступи по краях ===== */
+.container div.reasons {
+  padding: 0 clamp(16px, 6vw, 60px) 40px;
+}
+.container div.reasons p {
+  max-width: 800px;        /* ширина блоку тексту — зменшуй/збільшуй за смаком */
+  margin: 0 auto;          /* центрує блок, по боках лишається вільне місце */
+  line-height: 1.7;
+  font-size: clamp(18px, 2vw, 25px);
+}
+
+
+/* ===== шрифти ===== */
+body { font-family: var(--font-main); }
+
+.container div.header,
+.container div.header2,
+.container div.header3,
+.container div.header4,
+.container div.trailer h1,
+.container div.trailer h3,
+.slide2 .info h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.container div.header2 { font-weight: 500; }
+
+/* ===== reasons: вузька читабельна колонка ===== */
+.container div.reasons {
+  padding: 0 1rem 2rem;
+}
+.container div.reasons p {
+  max-width: 65ch;          /* ~65 символів у рядку — комфортно читати */
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.8;
+  hyphens: auto;
+}
