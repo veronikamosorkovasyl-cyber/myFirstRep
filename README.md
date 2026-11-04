@@ -21,7 +21,7 @@ A responsive, feature-rich web page dedicated to **JoJo's Bizarre Adventure: Par
 * **Series Information:** Quick-reference facts including Japanese title, romaji, episode count, broadcast dates, producers, and animation studio (`David Production`).
 * **Personal Review Section:** Outlines unique art styles, narrative depth, Stand mechanics, and community impact.
 
----
+[---](https://favoriteanime07.netlify.app/)
 
 ## 📁 Project Structure
 
